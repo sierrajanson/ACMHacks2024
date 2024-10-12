@@ -38,10 +38,10 @@ const Navbar= () =>{
   return (
   <div className="link_container">
     <li>
-      <Link to="/"className="link">Home</Link>
+      <Link to="/"className="link">Login</Link>
     </li>
     <li>
-      <Link to="/login"className="link">Login</Link>
+      <Link to="/home"className="link">Home</Link>
     </li>
     {/* <li className="login">
       {loggedIn ? (<Link to="/profile"className="link">Profile</Link>): (<p></p>)}

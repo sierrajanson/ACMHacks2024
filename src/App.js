@@ -75,8 +75,9 @@ import {Link, useNavigate, BrowserRouter as Router, Routes, Route} from "react-r
 // import DevPost from "./components/DevPost.js"
 import React, {useState, useEffect} from 'react';
 // import {getAuth, signOut, onAuthStateChanged} from "firebase/auth";
-import Login from './Login.js'
-import SignUp from './SignUp.jsx';
+import Login from './Signing Info/Login.js'
+import SignUp from './Signing Info/SignUp.jsx';
+import AuthDetails from './Signing Info/AuthDetails.jsx';
 
 function App() {
   // w vsc react js config url: https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
@@ -85,17 +86,19 @@ function App() {
 
   return (
     <div className="App">
-      <Login />
-      {/* <SignUp /> */}
-      {/* <h1>Hello Test</h1> */}
+      {/* <Login /> 
+      <SignUp />
+      <AuthDetails />
 
-      {/* <Router>
+      <h1>Hello Test</h1> */}
+
+      <Router>
           <Navbar/>
             <Routes>
-                <Route path='/' element={<Home/>}/>
-                <Route path='/login' element={<Login/>} />
+                <Route path='/' element={<Login/>}/>
+                <Route path='/home' element={<Home/>} />
             </Routes>
-      </Router> */}
+      </Router>
     </div>
   );
 }

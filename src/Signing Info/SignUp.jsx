@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import {React, useState} from "react";
-import { auth } from "./firebase/firebase";
+import { auth } from "../firebase/firebase";
 
 
 
@@ -26,14 +26,14 @@ const SignUp = () => {
           <h1>Create an Account Here!</h1>
           <input
           type="email" 
-          placeholder="Enter your email here" 
+          placeholder="Enter your email to sign up" 
           value={email}
             onChange={(e) => setEmail(e.target.value)}
   
           ></input>
   
           <input type="password" 
-          placeholder="Enter your password here" 
+          placeholder="Enter your password to sign up" 
           value={password}
           onChange={(e) =>setPassword(e.target.value)}
           ></input>
