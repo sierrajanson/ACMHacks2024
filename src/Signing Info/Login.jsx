@@ -13,13 +13,15 @@
 
 
 import { setConsent } from "firebase/analytics";
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState} from "react";
 import { auth, provider } from "../firebase/firebase";
 import { signInWithEmailAndPassword,  signInWithPopup} from "firebase/auth";
 import { useAuth } from "../contexts/authContext";
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from "../firebase/auth";
 import Home from "../Home";
 import { getAuth } from "firebase/auth";
+import AuthDetails from "./AuthDetails";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -33,7 +35,6 @@ import { getAuth } from "firebase/auth";
 //       setValue(data.user.email)
 //       localStorage.setItem("email", data.user.email)
 //     })
-    
 //   }
 
 //   useEffect(()=>{
@@ -43,31 +44,37 @@ import { getAuth } from "firebase/auth";
 //   return (
 //     <div>
 //       {/* {value? <h1>testing</h1>: */}
-//       {value ? <Home/>: 
+//       {value ? <LogIn/>: 
 //       <button onClick={handleClick}>Sign In with Google</button>
 //       }
 //     </div>
-//   )
+//   );
 // }
 
 // export default LogIn;
 
 
-// Log in with Email and Password
+// Log in with Email and Password  && Google
 
 const Login = () => {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('');
+
+    const navigate = useNavigate(); // added
 
     const handleClick = ()=>{
     signInWithPopup(auth, provider).then((data)=>{
-      setValue(data.user.email)
-      localStorage.setItem("email", data.user.email)
+      setValue(data.user.email);
+      localStorage.setItem("email", data.user.email);
+
+      navigate('/Home'); //added
+    }).catch((error) => {
+      console.error("Google Sign-In Error", error);
     })
-  }
+  };
 
   useEffect(()=>{
     setValue(localStorage.getItem("email"))
@@ -79,6 +86,7 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        navigate('/home');     // added
         }).catch((error) => {
           console.log(error)
       });
@@ -88,9 +96,8 @@ const Login = () => {
     <div className="log-in-container">
       <form onSubmit={[login]}> 
       {/* <form> */}
-
         <h1>Please log in!</h1>
-        <input
+        {/* <input
         type="email" 
         placeholder="Enter your email here to log in" 
         value={email}
@@ -104,13 +111,14 @@ const Login = () => {
         onChange={(e) =>setPassword(e.target.value)}
         ></input>
 
-          <button type="submit">Log In</button>
+          <button type="submit">Log In</button> */}
       </form>
 
       <button onClick={handleClick}>Sign In with Google</button>
+      <AuthDetails />
 
     </div>
-  )
+  );
 };
 
 export default Login
