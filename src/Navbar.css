@@ -1,0 +1,49 @@
+.link_container {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    margin-left:20px;
+    float: left;
+}
+
+.link{
+    background-color: #333;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+
+.link:hover {
+background-color: #555;
+}
+
+.login{
+    float:right;
+    margin-right: 20px;
+}
+
+.logOutBut{ /* removing all button styling*/
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin: 0;
+    background: none;
+    background-color: #333;
+    border-radius: 0;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+.logOutBut:hover{
+    background-color: #555;
+}
