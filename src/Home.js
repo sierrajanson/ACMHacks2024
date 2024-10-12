@@ -1,58 +1,101 @@
-import * as ReactDOM from 'react-dom/client'
-import './App.css';
-import { Component, createRef } from 'react'
-import Map from '@arcgis/core/Map'
-import MapView from '@arcgis/core/views/MapView'
-import CustomWidget from './CustomWidget'
+import React, { useEffect, useRef } from 'react';
+import MapView from '@arcgis/core/views/MapView';
+import WebMap from '@arcgis/core/WebMap';
+import Graphic from '@arcgis/core/Graphic';
+import Point from '@arcgis/core/geometry/Point';
+import ReactDOM from 'react-dom/client';
+import Popup from './Popup.js';
 
-class Home extends Component {
-  mapDiv = createRef()
-  mapView
-  widgetsLoaded = false
+const Home = () => {
+  const mapDiv = useRef(null);
 
-  componentDidMount = () => {
-    let map = new Map({
-      basemap: 'streets-vector'
-    })
-    
-    this.mapView = new MapView({
-      map: map,
-      zoom: 12,
-      center: {
-        latitude: 36.994117,
-        longitude: -122.060792
+  useEffect(() => {
+    let view;
+
+    const initializeMap = async () => {
+
+      const map = new WebMap({
+        basemap: 'streets-navigation-vector', 
+      });
+
+      view = new MapView({
+        container: mapDiv.current,
+        map: map,
+        center: [-122.0575, 36.992], 
+        zoom: 14,
+        ui: { components: ["zoom", "compass"] },  
+        constraints: {
+          attribution: false  
+        }
+      });
+
+      const libraryLocations = [
+        {
+          name: 'McHenry Library',
+          coordinates: [-122.0593, 36.9972],
+          people: 9,
+          temp: 87,
+          IAQ: "stale"
+        },
+        {
+          name: 'Science & Engineering Library',
+          coordinates: [-122.0624, 36.9991],
+          people: 89,
+          temp: 74,
+          IAQ: "good"
+        },
+      ];
+
+      libraryLocations.forEach((library) => {
+        const point = new Point({
+          longitude: library.coordinates[0],
+          latitude: library.coordinates[1],
+        });
+
+        const graphic = new Graphic({
+          geometry: point,
+          symbol: {
+            type: 'simple-marker',
+            color: [226, 119, 40], 
+            outline: {
+              color: [255, 255, 255], 
+              width: 1,
+            },
+          },
+          attributes: {
+            name: library.name,
+            people: library.people,
+            IAQ: library.IAQ,
+            temp: library.temp,
+          },
+          popupTemplate: {
+            title: '{name}',
+            content: 'There are {people} people, an IAQ of {IAQ}, and a temperature of {temp}',
+          },
+        });
+
+        view.graphics.add(graphic);
+      });
+    };
+
+    initializeMap();
+
+    return () => {
+      if (view) {
+        view.destroy(); 
+        view = null;
       }
-    })
+    };
+  }, []);
 
-    this.mapView.container = this.mapDiv.current
-
-    // this.mapView.when(() => {
-    //   if (!this.widgetsLoaded) {
-    //     let widgetNode = document.createElement('div')
-    //     let widgetRoot = ReactDOM.createRoot(widgetNode)
-    //     this.mapView.ui.add(widgetNode, 'top-left')
-    //     widgetRoot.render(<CustomWidget mapView={this.mapView} />)
-    //     this.widgetsLoaded = true
-    //   }
-    // })
-  }
-
-  render = () => {
-    return (
-      <div className="App">
-        <div>
-          testing
-        </div>
-        <div
-            ref={this.mapDiv}
-            style={{
-              height: '50vh',
-              width: '50vw'}}
-            >
-        </div>
-      </div>
-    )
-  }
-}
+  return (
+    <div>
+      <div
+        ref={mapDiv}
+        style={{ width: '70%', margin:'auto', height: '600px', border: '1px solid black' }}
+      />
+    </div>
+  );
+};
 
 export default Home;
