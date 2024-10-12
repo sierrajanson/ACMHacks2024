@@ -1,40 +1,44 @@
-.link_container {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li {
-    margin-left:20px;
-    float: left;
-}
-
-.link{
-    display: block;
-    color: #333;
-    text-align: center;
-    padding: 14px 16px;
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+    background-image: line;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon-container {
+    flex: 0 0 auto;
+  }
+  
+  .logo {
+    height: 80px;
+    width: auto;
+  }
+  
+  .link_container {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 30px;
+  }
+  
+  .link_container li {
+    list-style: none;
+    margin: 0 25px;
+  }
+  
+  .link {
     text-decoration: none;
-    }
-
-
-.login{
-    float:right;
-    margin-right: 20px;
-}
-
-.logOutBut{ /* removing all button styling*/
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    margin: 0;
-    background: none;
-    border-radius: 0;
-	border: none;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
+    color: #08acaf;
+    /* color: rgb(70, 133, 133); */
+    font-weight: bold;
+    font-size: large;
+    transition: color 0.3s;
+  }
+  
+  .link:hover {
+    color: #08acaf;
+  }
+  
