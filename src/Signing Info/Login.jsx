@@ -23,95 +23,97 @@ import { getAuth } from "firebase/auth";
 
 
 
+// Log in with Google
 
-
-function Login(){
-  const [value, setValue] = useState('')
+// function LogIn(){
+//   const [value, setValue] = useState('')
   
-  const handleClick = ()=>{
-    signInWithPopup(auth, provider).then((data)=>{
-      setValue(data.user.email)
-      localStorage.setItem("email", data.user.email)
-    })
-    
-  }
-
-  useEffect(()=>{
-    setValue(localStorage.getItem("email"))
-  })
-  
-  return (
-    <div>
-      {/* {value? <h1>testing</h1>: */}
-      {value ? <Home/>: 
-      <button onClick={handleClick}>Sign In with Google</button>
-      }
-    </div>
-  )
-}
-
-export default Login;
-
-
-
-// const Login = () => {
-
-//     const [email, setEmail] = useState('')
-//     const [password, setPassword] = useState('')
-
-//     const [value, setValue] = useState('')
-//     const handleClick = ()=>{
+//   const handleClick = ()=>{
 //     signInWithPopup(auth, provider).then((data)=>{
 //       setValue(data.user.email)
 //       localStorage.setItem("email", data.user.email)
 //     })
+    
 //   }
 
 //   useEffect(()=>{
 //     setValue(localStorage.getItem("email"))
 //   })
-
-
-//     const login = (e) =>{
-//       e.preventDefault();
-//       signInWithEmailAndPassword(auth, email, password)
-//       .then((userCredential) => {
-//         console.log(userCredential)
-//         }).catch((error) => {
-//           console.log(error)
-//       })
-//     }
   
-//   return(
-//     <div className="log-in-container">
-//       <form onSubmit={[login]}> 
-//       {/* <form> */}
-
-//         <h1>hello! You are here! Please log in!</h1>
-//         <input
-//         type="email" 
-//         placeholder="Enter your email here to log in" 
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         ></input>
-
-//         <input 
-//         type="password"  
-//         placeholder="Enter your password here" 
-//         value={password}
-//         onChange={(e) =>setPassword(e.target.value)}
-//         ></input>
-
-//           <button type="submit">Log In</button>
-//       </form>
-
+//   return (
+//     <div>
+//       {/* {value? <h1>testing</h1>: */}
+//       {value ? <Home/>: 
 //       <button onClick={handleClick}>Sign In with Google</button>
-
+//       }
 //     </div>
 //   )
-// };
+// }
 
-// export default Login
+// export default LogIn;
+
+
+// Log in with Email and Password
+
+const Login = () => {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const [value, setValue] = useState('')
+
+    const handleClick = ()=>{
+    signInWithPopup(auth, provider).then((data)=>{
+      setValue(data.user.email)
+      localStorage.setItem("email", data.user.email)
+    })
+  }
+
+  useEffect(()=>{
+    setValue(localStorage.getItem("email"))
+  })
+
+
+    const login = (e) =>{
+      e.preventDefault();
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+        }).catch((error) => {
+          console.log(error)
+      });
+    };
+  
+  return(
+    <div className="log-in-container">
+      <form onSubmit={[login]}> 
+      {/* <form> */}
+
+        <h1>Please log in!</h1>
+        <input
+        type="email" 
+        placeholder="Enter your email here to log in" 
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        ></input>
+
+        <input 
+        type="password"  
+        placeholder="Enter your password here" 
+        value={password}
+        onChange={(e) =>setPassword(e.target.value)}
+        ></input>
+
+          <button type="submit">Log In</button>
+      </form>
+
+      <button onClick={handleClick}>Sign In with Google</button>
+
+    </div>
+  )
+};
+
+export default Login
 
 
 

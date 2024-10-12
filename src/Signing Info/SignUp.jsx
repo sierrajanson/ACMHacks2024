@@ -10,7 +10,7 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
   
-    const signup = (e) => {
+    const signUp = (e) => {
       e.preventDefault();
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -22,23 +22,24 @@ const SignUp = () => {
   
     return(
       <div className="log-in-container">
-        <form onSubmit={[signup]}>
+        <form onSubmit={[signUp]}>
           <h1>Create an Account Here!</h1>
           <input
           type="email" 
           placeholder="Enter your email to sign up" 
           value={email}
-            onChange={(e) => setEmail(e.target.value)}
-  
+          onChange={(e) => setEmail(e.target.value)}
           ></input>
   
-          <input type="password" 
+        <input 
+          type="password"    
           placeholder="Enter your password to sign up" 
           value={password}
           onChange={(e) =>setPassword(e.target.value)}
           ></input>
   
-            <button type="Sign Up">Log In</button>
+          <button type="Sign Up">Sign Up Here!</button>
+          
         </form>
       </div>
     )
