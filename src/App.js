@@ -16,18 +16,18 @@ import Navbar from './Navbar.js'
 import {Link, useNavigate, BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 // import {getAuth, signOut, onAuthStateChanged} from "firebase/auth";
-import Login from './Signing Info/Login.js'
+import Login from './Signing Info/Login.jsx'
 import SignUp from './Signing Info/SignUp.jsx';
 import AuthDetails from './Signing Info/AuthDetails.jsx';
 
 function App() {
   return (
     <div className="App">
-      {/* <Login /> 
+      <Login /> 
       <SignUp />
       <AuthDetails />
 
-      <h1>Hello Test</h1> */}
+      {/* <h1>Hello Test</h1> */}
 
       <Router>
           <Navbar/>
