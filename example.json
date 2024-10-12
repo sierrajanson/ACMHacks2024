@@ -1,0 +1,16 @@
+{
+    "places": {
+        "mchenry":{
+            "temperature":94,
+            "iaq":50,
+            "ble":97,
+            "humidity":40
+        },
+        "se":{
+            "temperature":84,
+            "iaq":40,
+            "ble":45,
+            "humidity":34
+        }
+    }
+}
