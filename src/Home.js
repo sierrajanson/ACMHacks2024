@@ -5,7 +5,7 @@ import Graphic from '@arcgis/core/Graphic';
 import Point from '@arcgis/core/geometry/Point';
 import ReactDOM from 'react-dom/client';
 import Popup from './Popup.js';
-
+import api from './api.js';
 const Home = () => {
   const mapDiv = useRef(null);
 
@@ -13,7 +13,7 @@ const Home = () => {
     let view;
 
     const initializeMap = async () => {
-
+      
       const map = new WebMap({
         basemap: 'streets-navigation-vector', 
       });
@@ -80,6 +80,15 @@ const Home = () => {
 
     initializeMap();
 
+    const fetchData = async() =>{
+      // const resp = await api.get('/',{
+      //   params: {query:description,apikey:"3e3c6e58-57bc-44f1-8883-68c50439beda<__>1PTsFeETU8N2v5f4qmtDZVGS"},
+      // });
+      const res = await api.get('/');
+      console.log(res);
+
+    }
+    fetchData();
     return () => {
       if (view) {
         view.destroy(); 
