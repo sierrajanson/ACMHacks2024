@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-image: linear-gradient(to bottom right, rgba(245, 200, 236,0.4), rgba(184, 220, 240,0.4));
+
 }
 
 /* .map{

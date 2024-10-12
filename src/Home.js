@@ -92,7 +92,7 @@ const Home = () => {
     <div>
       <div
         ref={mapDiv}
-        style={{ width: '70%', margin:'auto', height: '600px', border: '1px solid black' }}
+        style={{ width: '70%', margin:'auto', marginTop: '20px', marginBottom: '20px', height: '600px', border: '2px solid rgba(245, 200, 236,0.6)' }}
       />
     </div>
   );
