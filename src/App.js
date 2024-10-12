@@ -70,25 +70,32 @@
 import './App.css';
 import Home from './Home.js'
 import Navbar from './Navbar.js'
-import Login from './Login.js'
+
 import {Link, useNavigate, BrowserRouter as Router, Routes, Route} from "react-router-dom";
 // import DevPost from "./components/DevPost.js"
 import React, {useState, useEffect} from 'react';
 // import {getAuth, signOut, onAuthStateChanged} from "firebase/auth";
+import Login from './Login.js'
+import SignUp from './SignUp.jsx';
 
 function App() {
   // w vsc react js config url: https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
   // w push to git tutorial: https://www.datacamp.com/tutorial/git-push-pull
   // install firebase, npm, node, react-route-dom modules to run this
+
   return (
     <div className="App">
-      <Router>
+      <Login />
+      {/* <SignUp /> */}
+      {/* <h1>Hello Test</h1> */}
+
+      {/* <Router>
           <Navbar/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/login' element={<Login/>} />
             </Routes>
-      </Router>
+      </Router> */}
     </div>
   );
 }
