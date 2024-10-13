@@ -1,14 +1,17 @@
 .App {
-    text-align: center;
-    /* background-image: linear-gradient(to bottom right, rgba(80, 180, 152,0.4), rgba(107, 243, 168, 0.4)); */
-    /* background-color: white; */
-    background: linear-gradient(135deg, 
-      rgba(70, 133, 133, 0.3) 0%,   /* darker teal */
-      rgba(80, 180, 152, 0.3) 33%,  /* teal */
-      rgba(156, 219, 166, 0.3) 66%, /* green */
-      rgba(222, 249, 196, 0.3) 100% /* light green */
-  );
+  text-align: center;
+  /* background-image: linear-gradient(to bottom right, rgba(80, 180, 152,0.4), rgba(107, 243, 168, 0.4)); */
+  /* background-color: white; */
+  background: linear-gradient(135deg, 
+    rgba(70, 133, 133, 0.3) 0%,   /* darker teal */
+    rgba(80, 180, 152, 0.3) 33%,  /* teal */
+    rgba(156, 219, 166, 0.3) 66%, /* green */
+    rgba(222, 249, 196, 0.3) 100% /* light green */
+);
+
+
 }
+
 
 .App-header {
   min-height: 100vh;
@@ -86,5 +89,3 @@
 .popup-content hr {
   margin: 15px 0; /* Space above and below the horizontal line */
 }
-
-

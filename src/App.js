@@ -23,9 +23,9 @@ import AuthDetails from './Signing Info/AuthDetails.jsx';
 function App() {
   return (
     <div className="App">
-      <Login /> 
+      {/* <Login /> 
       <SignUp />
-      <AuthDetails />
+      <AuthDetails /> */}
 
       {/* <h1>Hello Test</h1> */}
 
