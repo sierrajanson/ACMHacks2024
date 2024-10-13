@@ -32,7 +32,7 @@ At the core of each Greenbox is an ESP32 Microntroller equipped with a 915mhz Lo
 
 ## Challenges we ran into
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/board/QMSKIcRSQddMVgAUS6H8Px/Our-Tech-Stack?node-id=0-1&embed-host=share" allowfullscreen></iframe>
+
 This was truly a fullstack project and we mean it! We worked with the lowest level of code all the way from microcontrollers, I2C devices to the MQTT protocol, Cloud database, Huggingface Docker API implementation and React js while hand soldering and 3d printing the finished version. We were definetly crunched by time but are ultimately proud of the data pipeline, frontend and backend that we setup!
 
 ## What we learned
