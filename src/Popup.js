@@ -3,6 +3,25 @@ import PropTypes from 'prop-types';
 import './App.css'; // Make sure you have this CSS file for styles
 
 const Popup = ({ name, people, iaq, temperature, onClose }) => {
+
+  const suggestion = (temperature) =>{
+    console.log(temperature);
+    if (temperature != undefined){
+      if (temperature > 75){
+        return ( <p>🌀 Turn on the AC. </p>);
+      } else if (temperature < 55){
+        return ( <p>🔥 Turn the heat up! </p>);
+      } else {
+        return (<p> Seems good.</p>);
+      }
+    }
+    else{
+      return (<p>Loading...</p>)
+    }
+
+  }
+
+  // suggestion(temperature);
   return (
     <div className="popup">
       <div className="popup-content">
@@ -15,9 +34,7 @@ const Popup = ({ name, people, iaq, temperature, onClose }) => {
         <p><strong>Temperature:</strong> {temperature} °F</p>
         <hr />
         <h3>Suggestions</h3>
-        <p>🔥 Keep the doors open for ventilation!</p>
-        <p>🌀 Use fans to improve air circulation!</p>
-
+        {suggestion(temperature)}
       </div>
     </div>
   );

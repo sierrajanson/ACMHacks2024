@@ -1,47 +1,51 @@
-// import React, { useEffect, useRef } from 'react';
-// import MapView from '@arcgis/core/views/MapView';
-// import WebMap from '@arcgis/core/WebMap';
-// import Graphic from '@arcgis/core/Graphic';
-// import Point from '@arcgis/core/geometry/Point';
-// import ReactDOM from 'react-dom/client';
-// import Popup from './Popup.js';
-// import api from './api.js';
-// import { createRoot } from 'react-dom/client';  // Import createRoot
-
-//     const fetchData = async() =>{
-//       // const resp = await api.get('/',{
-//       //   params: {query:description,apikey:"3e3c6e58-57bc-44f1-8883-68c50439beda<__>1PTsFeETU8N2v5f4qmtDZVGS"},
-//       // });
-//       const res = await api.get('/');
-//       console.log(res);
-
-//     }
-//     fetchData();
-
-
-
 import React, { useEffect, useRef, useState } from 'react';
 import MapView from '@arcgis/core/views/MapView';
 import WebMap from '@arcgis/core/WebMap';
 import Graphic from '@arcgis/core/Graphic';
 import Point from '@arcgis/core/geometry/Point';
 import api from './api.js';
-import Popup from './Popup.js'; // Make sure to adjust the import based on your file structure
+import Popup from './Popup.js';
 import './App.css'; // Optional: Add your styles here
 
 const Home = () => {
   const mapDiv = useRef(null);
+  const viewRef = useRef(null); // Use a ref to store the view instance
   const [selectedGraphic, setSelectedGraphic] = useState(null); // State to track the selected graphic
+  const [temperature, setTemp] = useState(null);
+  const [iaq, setIAQ] = useState(null);
+  const [people, setPeople] = useState(null);
+  const [isDataLoaded, setIsDataLoaded] = useState(false); // New flag to track if data is loaded
+  
+  useEffect(() => {
+    // Fetch data asynchronously
+    const fetchData = async () => {
+      try {
+        const res = await api.get('/greetings');
+        const obj = res.data.places.mchenry;
+
+        setTemp(obj.temperature);
+        setIAQ(obj.iaq);
+        setPeople(obj.ble);
+
+        setIsDataLoaded(true); // Set the flag when data is fully loaded
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []); // Only run once when the component mounts
 
   useEffect(() => {
-    let view;
+    // Initialize map only once
+    if (viewRef.current || !isDataLoaded) return; // Prevent map initialization until data is loaded
 
     const initializeMap = async () => {
       const map = new WebMap({
         basemap: 'streets-navigation-vector',
       });
 
-      view = new MapView({
+      const view = new MapView({
         container: mapDiv.current,
         map: map,
         center: [-122.0575, 36.999],
@@ -56,9 +60,9 @@ const Home = () => {
         {
           name: 'McHenry Library',
           coordinates: [-122.0593, 36.9972],
-          people: 9,
-          temp: 87,
-          IAQ: 'stale',
+          people: people || 'Loading...', // Use actual data once loaded
+          temp: temperature || 'Loading...', // Actual data or placeholder
+          IAQ: iaq || 'Loading...', // Actual data or placeholder
         },
         {
           name: 'Science & Engineering Library',
@@ -107,23 +111,19 @@ const Home = () => {
           }
         });
       });
+
+      viewRef.current = view; // Store the view in the ref
     };
 
     initializeMap();
 
-    const fetchData = async () => {
-      const res = await api.get('/');
-      console.log(res);
-    };
-    fetchData();
-
     return () => {
-      if (view) {
-        view.destroy();
-        view = null;
+      if (viewRef.current) {
+        viewRef.current.destroy();
+        viewRef.current = null;
       }
     };
-  }, []);
+  }, [isDataLoaded]); // Only initialize the map when data is loaded
 
   return (
     <div className="appContainer">
@@ -136,7 +136,7 @@ const Home = () => {
           marginBottom: '20px',
           height: '75%',
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-          cursor:'pointer'
+          cursor: 'pointer',
         }}
       />
       {/* Render the Popup component if a graphic is selected */}
@@ -154,3 +154,4 @@ const Home = () => {
 };
 
 export default Home;
+
