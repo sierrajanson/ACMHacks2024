@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ACMHacks2024/static/css/main.ef3939b2.css",
-    "main.js": "/ACMHacks2024/static/js/main.ccffd209.js",
+    "main.css": "/ACMHacks2024/static/css/main.03b9a23f.css",
+    "main.js": "/ACMHacks2024/static/js/main.5f43b314.js",
     "static/js/2475.b8573409.chunk.js": "/ACMHacks2024/static/js/2475.b8573409.chunk.js",
     "static/js/5665.258a9c54.chunk.js": "/ACMHacks2024/static/js/5665.258a9c54.chunk.js",
     "static/js/623.a216281d.chunk.js": "/ACMHacks2024/static/js/623.a216281d.chunk.js",
@@ -296,14 +296,14 @@
     "static/js/6799.31ea0b83.chunk.js": "/ACMHacks2024/static/js/6799.31ea0b83.chunk.js",
     "static/js/5039.42764bc4.chunk.js": "/ACMHacks2024/static/js/5039.42764bc4.chunk.js",
     "static/js/1074.2643e0b7.chunk.js": "/ACMHacks2024/static/js/1074.2643e0b7.chunk.js",
-    "static/media/leo_headshot.jpeg": "/ACMHacks2024/static/media/leo_headshot.564fb8ba95d89a54e7d5.jpeg",
+    "static/media/leo_headshot.png": "/ACMHacks2024/static/media/leo_headshot.9c3fd927d2ff0b03dcb4.png",
     "static/media/ian_headshot.png": "/ACMHacks2024/static/media/ian_headshot.c8a9371660db0852faf6.png",
     "static/media/SierraJanson.jpg": "/ACMHacks2024/static/media/SierraJanson.3960cd49335069474351.jpg",
-    "static/media/pookers_headshot.jpg": "/ACMHacks2024/static/media/pookers_headshot.b00e8e0e882b4f222733.jpg",
+    "static/media/sank.jpg": "/ACMHacks2024/static/media/sank.b00e8e0e882b4f222733.jpg",
     "static/media/acmlogo.png": "/ACMHacks2024/static/media/acmlogo.c67d4fb828afcbb5aa36.png",
     "index.html": "/ACMHacks2024/index.html",
-    "main.ef3939b2.css.map": "/ACMHacks2024/static/css/main.ef3939b2.css.map",
-    "main.ccffd209.js.map": "/ACMHacks2024/static/js/main.ccffd209.js.map",
+    "main.03b9a23f.css.map": "/ACMHacks2024/static/css/main.03b9a23f.css.map",
+    "main.5f43b314.js.map": "/ACMHacks2024/static/js/main.5f43b314.js.map",
     "2475.b8573409.chunk.js.map": "/ACMHacks2024/static/js/2475.b8573409.chunk.js.map",
     "5665.258a9c54.chunk.js.map": "/ACMHacks2024/static/js/5665.258a9c54.chunk.js.map",
     "623.a216281d.chunk.js.map": "/ACMHacks2024/static/js/623.a216281d.chunk.js.map",
@@ -594,7 +594,7 @@
     "1074.2643e0b7.chunk.js.map": "/ACMHacks2024/static/js/1074.2643e0b7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef3939b2.css",
-    "static/js/main.ccffd209.js"
+    "static/css/main.03b9a23f.css",
+    "static/js/main.5f43b314.js"
   ]
 }
