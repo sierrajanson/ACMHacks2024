@@ -39,6 +39,9 @@ const Navbar = () => {
       <div className="link_container">
         {authUser?<button onClick={userSignOut}>Sign Out</button>:<li><Link to="/" className="link">Login</Link></li>}
         <li>
+          <Link to="/about" className="link">About</Link>
+        </li>
+        <li>
           <Link to="/home" className="link">Home</Link>
         </li>
       </div>

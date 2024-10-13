@@ -12,7 +12,7 @@
 import './App.css';
 import Home from './Home.js'
 import Navbar from './Navbar.js'
-
+import About from './About.js';
 import {Link, useNavigate, BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 // import {getAuth, signOut, onAuthStateChanged} from "firebase/auth";
@@ -34,6 +34,8 @@ function App() {
             <Routes>
                 <Route path='/' element={<Login/>}/>
                 <Route path='/home' element={<Home/>} />
+                <Route path='/about' element={<About/>} />
+
             </Routes>
       </Router>
     </div>
