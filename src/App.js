@@ -19,13 +19,28 @@ import React, {useState, useEffect} from 'react';
 import Login from './Signing Info/Login.jsx'
 import SignUp from './Signing Info/SignUp.jsx';
 import AuthDetails from './Signing Info/AuthDetails.jsx';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './firebase/firebase.js';
 
 function App() {
+  const [authUser, setAuthUser] = useState(null);
+
+  useEffect(() => {
+    const signedin = onAuthStateChanged(auth, (user) =>{
+      setAuthUser(user);
+    });
+
+    return () =>signedin();
+  });
+
+
+
+
   return (
     <div className="App">
       {/* <Login /> 
-      <SignUp />
-      <AuthDetails /> */}
+      <SignUp /> */}
+      {/* <AuthDetails /> */}
 
       {/* <h1>Hello Test</h1> */}
 
