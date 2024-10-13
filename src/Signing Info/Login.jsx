@@ -8,7 +8,7 @@ import Home from "../Home";
 import { getAuth } from "firebase/auth";
 import AuthDetails from "./AuthDetails";
 import { useNavigate } from "react-router-dom";
-
+import '../Login.css';
 
 const Login = () => {
 
