@@ -67,12 +67,27 @@ const Home = () => {
         {
           name: 'Science & Engineering Library',
           coordinates: [-122.0624, 36.9991],
-          people: 89,
+          people: 127,
           temp: 74,
           IAQ: 'good',
         },
-      ];
+        {
+          name: 'Namaste Lounge',
+          coordinates: [-122.0572, 37.0007],
+          people: 28,
+          temp: 64,
+          IAQ: 'good',
+        },
+        {
+          name: 'Rec Lounge',
+          coordinates: [-122.0577, 37.0008],
+          people: 18,
+          temp: 79,
+          IAQ: 'good',
+        },
 
+      ];
+      
       libraryLocations.forEach((library) => {
         const point = new Point({
           longitude: library.coordinates[0],

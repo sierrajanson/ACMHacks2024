@@ -45,8 +45,12 @@ const Navbar = () => {
             <li>
               <Link to="/home" className="link">Home</Link>
             </li>
+            <li>
+              <Link to="/about" className="link">About</Link>
+            </li>
 
-            <button onClick={userSignOut}>Sign Out</button>
+
+            <button className="navBarBtn" onClick={userSignOut}>Sign Out</button>
               
              
           </>

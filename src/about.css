@@ -60,6 +60,8 @@
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
+    width:50%;
+    margin:auto;
 }
 
 .team-member {

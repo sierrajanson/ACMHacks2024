@@ -12,13 +12,28 @@ const Popup = ({ name, people, iaq, temperature, onClose }) => {
       } else if (temperature < 55){
         return ( <p>🔥 Turn the heat up! </p>);
       } else {
-        return (<p> Seems good.</p>);
+        return (<p>✅ Temperature good.</p>);
       }
     }
     else{
       return (<p>Loading...</p>)
     }
 
+  }
+  const suggestionPeople = (people) =>{
+    if (people != undefined){
+      if (people > 98){
+        return ( <p>🚨Very busy.</p>);
+      } 
+    }
+  }
+
+  const suggestionAir = (iaq) => {
+    if (iaq != undefined){
+      if (iaq > 100){
+        return (<p>🌀 Unhealthy, turn on the fans.</p>)
+      }
+    }
   }
 
   // suggestion(temperature);
@@ -35,6 +50,8 @@ const Popup = ({ name, people, iaq, temperature, onClose }) => {
         <hr />
         <h3>Suggestions</h3>
         {suggestion(temperature)}
+        {suggestionPeople(people)}
+        {suggestionAir(iaq)}
       </div>
     </div>
   );

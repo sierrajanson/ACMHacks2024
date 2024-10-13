@@ -1,6 +1,10 @@
 import React from 'react';
 import './about.css';
 import ModelViewer from './ModelViewer'; // Import the ModelViewer component
+import Sank from './pookers_headshot.jpg';
+import Sier from './SierraJanson.jpg';
+import Ian from './ian_headshot.png';
+import Leo from './leo_headshot.jpeg';
 
 const About = () => {
     return (
@@ -16,24 +20,24 @@ const About = () => {
                 <h2>Meet the Team</h2>
                 <div className="team-members">
                     <div className="team-member">
-                        <img src="path_to_image" alt="Team Member 1" />
-                        <h3>Team Member 1</h3>
-                        <p>Role</p>
+                        <img src={Sank} alt="Team Member 1" />
+                        <h3>Sankritya Anand Rai</h3>
+                        <p>Fullstack, CAD</p>
                     </div>
                     <div className="team-member">
-                        <img src="path_to_image" alt="Team Member 2" />
-                        <h3>Team Member 2</h3>
-                        <p>Role</p>
+                        <img src={Sier} alt="Team Member 2" />
+                        <h3>Sierra Janson</h3>
+                        <p>Fullstack</p>
                     </div>
                     <div className="team-member">
-                        <img src="path_to_image" alt="Team Member 3" />
-                        <h3>Team Member 3</h3>
-                        <p>Role</p>
+                        <img src={Ian} alt="Team Member 3" />
+                        <h3>Ian Bunsirisert</h3>
+                        <p>Backend</p>
                     </div>
                     <div className="team-member">
-                        <img src="path_to_image" alt="Team Member 3" />
-                        <h3>Team Member 4</h3>
-                        <p>Role</p>
+                        <img src={Leo} alt="Team Member 3" />
+                        <h3>Leo Li</h3>
+                        <p>Backend</p>
                     </div>
                 </div>
             </section>
