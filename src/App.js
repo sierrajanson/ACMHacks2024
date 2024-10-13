@@ -12,8 +12,8 @@
 import './App.css';
 import Home from './Home.js'
 import Navbar from './Navbar.js'
-
-import {Link, useNavigate, BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
+import About from './About.js';
+import {Link, useNavigate, BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 // import {getAuth, signOut, onAuthStateChanged} from "firebase/auth";
 import Login from './Signing Info/Login.jsx'
@@ -48,8 +48,9 @@ function App() {
           <Navbar/>
             <Routes>
                 <Route path='/' element={<Login/>}/>
-                <Route path='/home' element={authUser ? <Home/>: <Navigate to="/"/>} />
-                {/* <Route path='/SignUp' element={<SignUp/>}/> */}
+                <Route path='/home' element={<Home/>} />
+                <Route path='/about' element={<About/>} />
+
             </Routes>
       </Router>
     </div>
