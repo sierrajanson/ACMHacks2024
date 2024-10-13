@@ -45,12 +45,14 @@ const Login = () => {
     };
   
   return(
-    <div className="log-in-container">
+    <div className="log-in-background">
+      <div className = "log-in-container" >
       <form onSubmit={[login]}> 
         <h1>Please log in!</h1>
       </form>
-      
+
       <button onClick={handleClick}>Sign In with Google</button>
+    </div>
     </div>
   );
 };
